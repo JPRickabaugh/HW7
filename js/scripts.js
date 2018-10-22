@@ -12,9 +12,17 @@ $(document).ready(function(){
     async: true,
     dataType: "xml",
     success: function (grants){
-      console.log(grants);
-      
-
+      console.log('grants');
+      html += '<tr><th>Project Title</th><th>Year Awarded</th><th>Original Amount</th><th>Description</th></tr>';
+      $(grants).find('Grant').each(function(){
+        projectTitle = $(this).find('ProjectTitle').text();
+        yearAwarded = $(this).find('YearAwarded').text();
+        originalAmount = $(this).find('OriginalAmount').text();
+        grantDescription = $(this).find('ToSupport').text();
+        console.log('html');
+        html += '<tr><td>' + projectTitle + '</td><td>' + yearAwarded + '</td><td>' + originalAmount + '</td><td>' + grantDescription + '</td>';
+      });
+      $('#results').append(html);
     }
   });
 /*
