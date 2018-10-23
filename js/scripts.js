@@ -20,9 +20,16 @@ $(document).ready(function(){
         originalAmount = $(this).find('OriginalAmount').text();
         grantDescription = $(this).find('ToSupport').text();
         console.log('html');
-        html += '<tr><td>' + projectTitle + '</td><td>' + yearAwarded + '</td><td>' + originalAmount + '</td><td>' + grantDescription + '</td>';
+        if(grantDescription === 'None'){
+
+        } else {
+          html += '<tr><td>' + projectTitle + '</td><td>' + yearAwarded + '</td><td>' + originalAmount + '</td><td>' + grantDescription + '</td>';
+        }
+
       });
       $('#results').append(html);
+
+
     }
   });
 /*
